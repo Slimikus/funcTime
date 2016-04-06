@@ -1,4 +1,4 @@
-let sec = 120
+let sec = 3599
 
 func printTime(sec: Int) {
     let tempTime = sec
@@ -9,50 +9,74 @@ func printTime(sec: Int) {
     
     let result = true
     var printText = "Время скачивания файла "
+    var printSec = ""
+    var printMin = ""
     let arrayOne = [1, 21, 31, 41, 51]
     let arrayTwo = [2, 3, 4, 22, 32, 42, 52, 23, 33, 43, 53, 24, 34, 44, 54]
     
-    func fSec(sec: Int) {
+    // Подсчёт минут
+    func tMin(sec: Int) -> Int {
+        var tSec = min * 60
+        tSec = sec - tSec
+        return tSec
+    }
+    
+    if sec == 0 {
+        printText += "меньше секунды"
+    }
+    
+    func fSec(sec: Int) -> String {
         switch sec {
-        case 0:
-            printText += "меньше секунды"
         case 1..<60:
             if result == arrayOne.contains(sec) {
-                print("\(printText)\(sec) секунда")
+                printSec = "\(sec) секунда"
+                return printSec
             } else if result == arrayTwo.contains(sec) {
-                print("\(printText)\(sec) секунды")
+                printSec = "\(sec) секунды"
+                return printSec
             } else {
-                print("\(printText)\(sec) секунд")
+                printSec = "\(sec) секунд"
+                return printSec
             }
-            printText +=  String(tempTime)
         default:
             break
         }
+        return printSec
     }
     
-    func fMin(min: Int) {
+    func fMin(min: Int, _ sec: Int) -> (String, Int) {
+        let tSec = tMin(sec)
         switch min {
          case 1..<60:
             if result == arrayOne.contains(min) {
-                print("\(printText)\(min) минута")
+                printMin = "\(min) минута "
+                return (printMin, tSec)
             } else if result == arrayTwo.contains(min) {
-                print("\(printText)\(min) минуты")
+                printMin = "\(min) минуты "
+                return (printMin, tSec)
             } else {
-                print("\(printText)\(min) минут")
+                printMin = "\(min) минут "
+                return (printMin, tSec)
             }
+            tMin(sec)
             printText +=  String(tempTime)
         default:
             break
         }
+        return (printMin, sec)
     }
     
     if sec < 60 {
         fSec(sec)
+        print(printText + printSec)
     } else if min < 60 {
-        fMin(min)
+        let tSec = fMin(min, sec)
+        fSec(tSec.1)
+        sec
+        print(printText + printMin + fSec(tSec.1))
     }
     
-    print("Test: \(printText) секунд")
+    print("Test: \(printText)\(sec) секунд")
 }
 
 printTime(sec)
