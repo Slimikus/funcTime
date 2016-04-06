@@ -1,4 +1,4 @@
-let sec = 3599
+let sec = 86_399
 
 func printTime(sec: Int) {
     let tempTime = sec
@@ -11,8 +11,9 @@ func printTime(sec: Int) {
     var printText = "Время скачивания файла "
     var printSec = ""
     var printMin = ""
-    let arrayOne = [1, 21, 31, 41, 51]
-    let arrayTwo = [2, 3, 4, 22, 32, 42, 52, 23, 33, 43, 53, 24, 34, 44, 54]
+    var printChas = ""
+    let array1 = [1, 21, 31, 41, 51]
+    let array2 = [2, 3, 4, 22, 32, 42, 52, 23, 33, 43, 53, 24, 34, 44, 54]
     
     // Подсчёт минут
     func tMin(sec: Int) -> Int {
@@ -21,14 +22,21 @@ func printTime(sec: Int) {
         return tSec
     }
     
+    // Подсчёт часов
+    func tChas(min: Int) -> Int {
+        var tMin = chas * 60
+        tMin = min - tMin
+        return tMin
+    }
+    
     // Отображение секунд
     func fSec(sec: Int) -> String {
         switch sec {
         case 1..<60:
-            if result == arrayOne.contains(sec) {
+            if result == array1.contains(sec) {
                 printSec = "\(sec) секунда"
                 return printSec
-            } else if result == arrayTwo.contains(sec) {
+            } else if result == array2.contains(sec) {
                 printSec = "\(sec) секунды"
                 return printSec
             } else {
@@ -46,10 +54,10 @@ func printTime(sec: Int) {
         let tSec = tMin(sec)
         switch min {
          case 1..<60:
-            if result == arrayOne.contains(min) {
+            if result == array1.contains(min) {
                 printMin = "\(min) минута "
                 return (printMin, tSec)
-            } else if result == arrayTwo.contains(min) {
+            } else if result == array2.contains(min) {
                 printMin = "\(min) минуты "
                 return (printMin, tSec)
             } else {
@@ -62,6 +70,29 @@ func printTime(sec: Int) {
             break
         }
         return (printMin, sec)
+    }
+    
+    // Отображение часов
+    func fChas(chas: Int, _ min: Int) -> (String, Int) {
+        let tMin = tChas(min)
+        switch chas {
+        case 1..<24:
+            if result == array1.contains(chas) {
+                printChas = "\(chas) час "
+                return (printChas, tMin)
+            } else if result == array2.contains(chas) {
+                printChas = "\(chas) часа "
+                return (printChas, tMin)
+            } else {
+                printChas = "\(chas) часов "
+                return (printChas, tMin)
+            }
+            tChas(min)
+            printText +=  String(tempTime)
+        default:
+            break
+        }
+        return (printChas, min)
     }
     
     // Вывод на экран до 1 секунды
@@ -79,6 +110,15 @@ func printTime(sec: Int) {
         let tSec = fMin(min, sec)
         fSec(tSec.1)
         print(printText + printMin + fSec(tSec.1))
+        
+        // Вывод на экран от 1 до 23 часов
+    } else if chas < 24 {
+        let tMin = fChas(chas, min)
+        let tSec = fMin(tMin.1, sec)
+        fMin(tMin.1, sec)
+        fSec(tSec.1)
+        print(printText + printChas + printMin + printSec)
+        
     }
     
     print("Test: \(printText)\(sec) секунд")
