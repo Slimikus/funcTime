@@ -21,10 +21,7 @@ func printTime(sec: Int) {
         return tSec
     }
     
-    if sec == 0 {
-        printText += "меньше секунды"
-    }
-    
+    // Отображение секунд
     func fSec(sec: Int) -> String {
         switch sec {
         case 1..<60:
@@ -44,6 +41,7 @@ func printTime(sec: Int) {
         return printSec
     }
     
+    // Отбражение минут
     func fMin(min: Int, _ sec: Int) -> (String, Int) {
         let tSec = tMin(sec)
         switch min {
@@ -66,17 +64,25 @@ func printTime(sec: Int) {
         return (printMin, sec)
     }
     
-    if sec < 60 {
+    // Вывод на экран до 1 секунды
+    if sec < 1 {
+        printText += "меньше секунды"
+    }
+    
+    // Выдод на экран от 1 до 59 секунд
+    if sec > 1 && sec < 60 {
         fSec(sec)
         print(printText + printSec)
+        
+        // Вывод на экран от 1 до 59 минут
     } else if min < 60 {
         let tSec = fMin(min, sec)
         fSec(tSec.1)
-        sec
         print(printText + printMin + fSec(tSec.1))
     }
     
     print("Test: \(printText)\(sec) секунд")
 }
 
+// Запуск функции
 printTime(sec)
