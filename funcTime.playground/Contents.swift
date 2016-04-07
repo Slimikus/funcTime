@@ -1,4 +1,4 @@
-let sec = 86_401
+let sec = 90_001
 
 func printTime(sec: Int) {
     let tempTime = sec
@@ -135,9 +135,7 @@ func printTime(sec: Int) {
         // Вывод на экран от 1 секунды до 24 часов
     } else {
         let tChas = fDni(dni, chas)
-        fChas(tChas.1, min)
         let tMin = fChas(tChas.1, min)
-        fMin(tMin.1, sec)
         let tSec = fMin(tMin.1, sec)
         fSec(tSec.1)
         print(printText + printDni + printChas + printMin + printSec)
