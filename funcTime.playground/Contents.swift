@@ -1,11 +1,11 @@
-let sec = 90_001
+let sec = 2_592_999_999
 
 func printTime(sec: Int) {
-    let tempTime = sec
     var min = sec / 60
     var chas = min / 60
     var dni = chas / 24
-    var ned = dni / 7
+    var mes = dni / 30
+    var god = mes / 12
     
     let result = true
     var printText = "Время скачивания файла "
@@ -13,9 +13,10 @@ func printTime(sec: Int) {
     var printMin = ""
     var printChas = ""
     var printDni = ""
-    var printNed = ""
-    let array1 = [1, 21, 31, 41, 51]
-    let array2 = [2, 3, 4, 22, 32, 42, 52, 23, 33, 43, 53, 24, 34, 44, 54]
+    var printMes = ""
+    var printGod = ""
+    let array1 = [1, 21, 31, 41, 51, 61, 71, 81, 91]
+    let array2 = [2, 3, 4, 22, 32, 42, 52, 23, 33, 43, 53, 24, 34, 44, 54, 62, 63, 64, 72, 73, 74, 82, 83, 84, 92, 93, 94]
     
     // Подсчёт минут
     func tMin(sec: Int) -> Int {
@@ -26,7 +27,6 @@ func printTime(sec: Int) {
     
     // Подсчёт часов
     func tChas(min: Int) -> Int {
-        min
         var tMin = chas * 60
         tMin = min - tMin
         return tMin
@@ -34,10 +34,23 @@ func printTime(sec: Int) {
     
     // Подсчёт дней
     func tDni(chas: Int) -> Int {
-        chas
         var tChas = dni * 24
         tChas = chas - tChas
         return tChas
+    }
+    
+    // Подсчёт месяцев
+    func tMes(dni: Int) -> Int {
+        var tDni = mes * 30
+        tDni = dni - tDni
+        return tDni
+    }
+    
+    // Подсчёт лет
+    func tGod(mes: Int) -> Int {
+        var tMes = god * 12
+        tMes = mes - tMes
+        return tMes
     }
     
     // Отображение секунд
@@ -55,7 +68,7 @@ func printTime(sec: Int) {
                 return printSec
             }
         default:
-            sec
+            break
         }
         return printSec
     }
@@ -75,8 +88,6 @@ func printTime(sec: Int) {
                 printMin = "\(min) минут "
                 return (printMin, tSec)
             }
-            
-            printText +=  String(tempTime)
         default:
             break
         }
@@ -98,7 +109,6 @@ func printTime(sec: Int) {
                 printChas = "\(chas) часов "
                 return (printChas, tMin)
             }
-            printText +=  String(tempTime)
         default:
             break
         }
@@ -109,7 +119,7 @@ func printTime(sec: Int) {
     func fDni(dni: Int, _ chas: Int) -> (String, Int) {
         let tChas = tDni(chas)
         switch dni {
-        case 1..<24:
+        case 1..<31:
             if result == array1.contains(dni) {
                 printDni = "\(dni) день "
                 return (printDni, tChas)
@@ -120,28 +130,71 @@ func printTime(sec: Int) {
                 printDni = "\(dni) дней "
                 return (printDni, tChas)
             }
-            printText +=  String(tempTime)
         default:
-            dni
+            break
         }
         return (printDni, tChas)
+    }
+    
+    // Отображение  месяцев
+    func fMes(mes: Int, _ dni: Int) -> (String, Int) {
+        let tDni = tMes(dni)
+        switch mes {
+        case 1..<31:
+            if result == array1.contains(mes) {
+                printMes = "\(mes) месяц "
+                return (printMes, tDni)
+            } else if result == array2.contains(mes) {
+                printMes = "\(mes) месяца "
+                return (printMes, tDni)
+            } else {
+                printMes = "\(mes) месяцев "
+                return (printMes, tDni)
+            }
+        default:
+            break
+        }
+        return (printMes, tDni)
+    }
+    
+    // Отображение  лет
+    func fGod(god: Int, _ mes: Int) -> (String, Int) {
+        let tMes = tGod(mes)
+        switch god {
+        case 1...100:
+            if result == array1.contains(god) {
+                printGod = "\(god) год "
+                return (printGod, tMes)
+            } else if result == array2.contains(god) {
+                printGod = "\(god) года "
+                return (printGod, tMes)
+            } else {
+                printGod = "\(god) лет "
+                return (printGod, tMes)
+            }
+        default:
+            break
+        }
+        return (printGod, tMes)
     }
     
     // Вывод на экран до 1 секунды
     if sec < 1 {
         printText += "меньше секунды"
         print(printText)
+    } else if god >= 100 {
+        print(printText + "займёт больше 100 лет!!!")
         
-        // Вывод на экран от 1 секунды до 24 часов
+        // Вывод на экран от 1 секунды до 100 лет
     } else {
-        let tChas = fDni(dni, chas)
+        let tMes = fGod(god, mes)
+        let tDni = fMes(tMes.1, dni)
+        let tChas = fDni(tDni.1, chas)
         let tMin = fChas(tChas.1, min)
         let tSec = fMin(tMin.1, sec)
         fSec(tSec.1)
-        print(printText + printDni + printChas + printMin + printSec)
+        print(printText + printGod + printMes + printDni + printChas + printMin + printSec)
     }
-    
-    print("Test: \(printText)\(sec) секунд")
 }
 
 // Запуск функции
