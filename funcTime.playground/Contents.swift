@@ -1,4 +1,4 @@
-let sec = 86399
+let sec = 86_401
 
 func printTime(sec: Int) {
     let tempTime = sec
@@ -12,6 +12,8 @@ func printTime(sec: Int) {
     var printSec = ""
     var printMin = ""
     var printChas = ""
+    var printDni = ""
+    var printNed = ""
     let array1 = [1, 21, 31, 41, 51]
     let array2 = [2, 3, 4, 22, 32, 42, 52, 23, 33, 43, 53, 24, 34, 44, 54]
     
@@ -24,9 +26,18 @@ func printTime(sec: Int) {
     
     // Подсчёт часов
     func tChas(min: Int) -> Int {
+        min
         var tMin = chas * 60
         tMin = min - tMin
         return tMin
+    }
+    
+    // Подсчёт дней
+    func tDni(chas: Int) -> Int {
+        chas
+        var tChas = dni * 24
+        tChas = chas - tChas
+        return tChas
     }
     
     // Отображение секунд
@@ -44,7 +55,7 @@ func printTime(sec: Int) {
                 return printSec
             }
         default:
-            break
+            sec
         }
         return printSec
     }
@@ -64,12 +75,12 @@ func printTime(sec: Int) {
                 printMin = "\(min) минут "
                 return (printMin, tSec)
             }
-            tMin(sec)
+            
             printText +=  String(tempTime)
         default:
             break
         }
-        return (printMin, sec)
+        return (printMin, tSec)
     }
     
     // Отображение часов
@@ -87,12 +98,33 @@ func printTime(sec: Int) {
                 printChas = "\(chas) часов "
                 return (printChas, tMin)
             }
-            tChas(min)
             printText +=  String(tempTime)
         default:
             break
         }
-        return (printChas, min)
+        return (printChas, tMin)
+    }
+    
+    // Отображение дней
+    func fDni(dni: Int, _ chas: Int) -> (String, Int) {
+        let tChas = tDni(chas)
+        switch dni {
+        case 1..<24:
+            if result == array1.contains(dni) {
+                printDni = "\(dni) день "
+                return (printDni, tChas)
+            } else if result == array2.contains(dni) {
+                printDni = "\(dni) дня "
+                return (printDni, tChas)
+            } else {
+                printDni = "\(dni) дней "
+                return (printDni, tChas)
+            }
+            printText +=  String(tempTime)
+        default:
+            dni
+        }
+        return (printDni, tChas)
     }
     
     // Вывод на экран до 1 секунды
@@ -102,11 +134,13 @@ func printTime(sec: Int) {
         
         // Вывод на экран от 1 секунды до 24 часов
     } else {
-        let tMin = fChas(chas, min)
-        let tSec = fMin(tMin.1, sec)
+        let tChas = fDni(dni, chas)
+        fChas(tChas.1, min)
+        let tMin = fChas(tChas.1, min)
         fMin(tMin.1, sec)
+        let tSec = fMin(tMin.1, sec)
         fSec(tSec.1)
-        print(printText + printChas + printMin + printSec)
+        print(printText + printDni + printChas + printMin + printSec)
     }
     
     print("Test: \(printText)\(sec) секунд")
