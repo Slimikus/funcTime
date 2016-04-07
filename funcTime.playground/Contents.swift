@@ -1,4 +1,4 @@
-let sec = 86_399
+let sec = 86399
 
 func printTime(sec: Int) {
     let tempTime = sec
@@ -98,27 +98,15 @@ func printTime(sec: Int) {
     // Вывод на экран до 1 секунды
     if sec < 1 {
         printText += "меньше секунды"
-    }
-    
-    // Выдод на экран от 1 до 59 секунд
-    if sec > 1 && sec < 60 {
-        fSec(sec)
-        print(printText + printSec)
+        print(printText)
         
-        // Вывод на экран от 1 до 59 минут
-    } else if min < 60 {
-        let tSec = fMin(min, sec)
-        fSec(tSec.1)
-        print(printText + printMin + fSec(tSec.1))
-        
-        // Вывод на экран от 1 до 23 часов
-    } else if chas < 24 {
+        // Вывод на экран от 1 секунды до 24 часов
+    } else {
         let tMin = fChas(chas, min)
         let tSec = fMin(tMin.1, sec)
         fMin(tMin.1, sec)
         fSec(tSec.1)
         print(printText + printChas + printMin + printSec)
-        
     }
     
     print("Test: \(printText)\(sec) секунд")
