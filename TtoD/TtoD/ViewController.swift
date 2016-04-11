@@ -20,13 +20,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Objem: UITextField!
     @IBOutlet weak var Skoroct: UITextField!
     @IBOutlet weak var Result: UILabel!
+    @IBOutlet weak var edinOb: UIPickerView!
+    @IBOutlet weak var edinSk: UIPickerView!
     @IBAction func Raschet(sender: UIButton) {
         
         let a = Int(Objem.text!)!
         let b = Int(Skoroct.text!)!
         let sum = a + b
-        let printLabel = "\(sum)"
-        Result.text = printLabel
+        let printLabel = "Сумма полей "
+        Result.text = printLabel + String(sum)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
