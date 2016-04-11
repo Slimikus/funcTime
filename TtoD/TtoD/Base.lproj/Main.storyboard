@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -38,41 +39,44 @@
                                     <action selector="Raschet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JXv-UM-sFI"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Скорость" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlS-hh-hck">
-                                <rect key="frame" x="72" y="188" width="85" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="KLy-aW-sV4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расчёт времени скачивания" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrI-DS-KJp">
-                                <rect key="frame" x="187" y="20" width="227" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Объём" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ms-dF-fcx">
-                                <rect key="frame" x="72" y="103" width="85" height="30"/>
+                                <rect key="frame" x="72" y="119" width="85" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="kUk-fW-udj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расчёт времени скачивания" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrI-DS-KJp">
+                                <rect key="frame" x="178" y="28" width="245" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qrI-DS-KJp" secondAttribute="height" multiplier="245:67" id="ITX-Dq-ENl"/>
+                                    <constraint firstAttribute="height" constant="67" id="yqm-ha-JVV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Скорость" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlS-hh-hck">
+                                <rect key="frame" x="72" y="204" width="85" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="KLy-aW-sV4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qrI-DS-KJp" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" id="5tG-AI-3B2"/>
                             <constraint firstItem="pus-Ip-mJl" firstAttribute="top" secondItem="1Wr-tU-Bef" secondAttribute="bottom" constant="96" id="77K-Zg-slF"/>
-                            <constraint firstItem="1Wr-tU-Bef" firstAttribute="top" secondItem="FlS-hh-hck" secondAttribute="bottom" constant="109" id="IKI-Qy-Kxv"/>
+                            <constraint firstItem="qrI-DS-KJp" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="8" id="CQH-6r-yAU"/>
                             <constraint firstItem="pus-Ip-mJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NgH-nt-XN4"/>
                             <constraint firstItem="qrI-DS-KJp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RZH-2o-OZ4"/>
-                            <constraint firstItem="qrI-DS-KJp" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" id="Szr-Ya-0MJ"/>
                             <constraint firstItem="5ms-dF-fcx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="dVT-fk-TPb"/>
+                            <constraint firstItem="1Wr-tU-Bef" firstAttribute="top" secondItem="FlS-hh-hck" secondAttribute="bottom" constant="93" id="icO-tw-lnO"/>
                             <constraint firstItem="1Wr-tU-Bef" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l4F-2N-uJ9"/>
-                            <constraint firstItem="5ms-dF-fcx" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="83" id="mb1-i6-Fme"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="top" secondItem="5ms-dF-fcx" secondAttribute="bottom" constant="55" id="n7M-Zj-ufL"/>
+                            <constraint firstItem="5ms-dF-fcx" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="99" id="qAv-3u-KUK"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="xQ9-6f-PUY"/>
                         </constraints>
                     </view>
