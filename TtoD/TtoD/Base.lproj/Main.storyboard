@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="top" id="HVD-BO-EBi"/>
                         <viewControllerLayoutGuide type="bottom" id="Qp7-jq-FZF"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -54,19 +54,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ds6-OA-3ip">
-                                <rect key="frame" x="424" y="204" width="146" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="146" id="Dsd-Yg-AWS"/>
-                                    <constraint firstAttribute="height" constant="30" id="tWk-pw-xKP"/>
-                                </constraints>
-                            </pickerView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9n-ZY-OZo">
                                 <rect key="frame" x="424" y="119" width="146" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6Eb-b1-v0d"/>
                                     <constraint firstAttribute="width" constant="146" id="IxD-aZ-mOC"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="gHa-mR-YPJ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OqO-IC-kkd"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pus-Ip-mJl">
                                 <rect key="frame" x="239" y="402" width="123" height="40"/>
@@ -80,6 +77,17 @@
                                     <action selector="Raschet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JXv-UM-sFI"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ds6-OA-3ip">
+                                <rect key="frame" x="424" y="204" width="146" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="146" id="Dsd-Yg-AWS"/>
+                                    <constraint firstAttribute="height" constant="30" id="tWk-pw-xKP"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="AIa-jY-elv"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iRK-r9-bVl"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -105,8 +113,6 @@
                         <outlet property="Objem" destination="5ms-dF-fcx" id="hvB-nX-aH5"/>
                         <outlet property="Result" destination="1Wr-tU-Bef" id="dcV-Lq-W7p"/>
                         <outlet property="Skoroct" destination="FlS-hh-hck" id="mHh-Oh-huq"/>
-                        <outlet property="edinOb" destination="c9n-ZY-OZo" id="hBg-uq-97w"/>
-                        <outlet property="edinSk" destination="Ds6-OA-3ip" id="OL6-5w-P9N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

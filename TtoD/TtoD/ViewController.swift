@@ -8,20 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var arr = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Objem.delegate = self
         Skoroct.delegate = self
-        
+        arr = [1, 2, 3, 4, 5]
     }
     
     @IBOutlet weak var Objem: UITextField!
     @IBOutlet weak var Skoroct: UITextField!
     @IBOutlet weak var Result: UILabel!
-    @IBOutlet weak var edinOb: UIPickerView!
-    @IBOutlet weak var edinSk: UIPickerView!
     @IBAction func Raschet(sender: UIButton) {
         
         var printLabel: String = ""
@@ -281,8 +281,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         default:
             break
         }
-        
-//        printLabel += "Работает!!! (вся инфа в консоли)"
         Result.text = printLabel
     }
     
@@ -299,5 +297,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.touchesBegan(touches, withEvent: event)
     }
 
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arr.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(arr[row])"
+    }
 }
 
