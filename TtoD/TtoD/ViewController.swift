@@ -38,7 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
        
         obyemSkach = (obyemSkachD, obyemSkachE)
         skorSoed = (skorSoedD, skorSoedE)
-        print("\(obyemSkach)  \(skorSoed)")
         
         // Перевод единиц измерения в байты
         func perevodVByte(obyem: Double, _ velich: String) -> (Double, String) {
@@ -259,6 +258,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 let tSec = fMin(tMin.1, sec)
                 fSec(tSec.1)
                 print(printText + printGod + printMes + printDni + printChas + printMin + printSec)
+                printLabel = printText + printGod + printMes + printDni + printChas + printMin + printSec
             }
         }
         
@@ -282,7 +282,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             break
         }
         
-        printLabel += "Работает!!! (вся инфа в консоли)"
+//        printLabel += "Работает!!! (вся инфа в консоли)"
         Result.text = printLabel
     }
     
