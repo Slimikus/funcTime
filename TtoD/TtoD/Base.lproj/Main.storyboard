@@ -19,17 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pus-Ip-mJl">
-                                <rect key="frame" x="249" y="444" width="102" height="35"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Рассчитать">
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="Raschet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JXv-UM-sFI"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите данные" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wr-tU-Bef">
+                                <rect key="frame" x="20" y="272" width="560" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="pMX-sr-2lb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Скорость" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlS-hh-hck">
                                 <rect key="frame" x="30" y="204" width="85" height="30"/>
                                 <constraints>
@@ -70,33 +68,36 @@
                                     <constraint firstAttribute="width" constant="146" id="IxD-aZ-mOC"/>
                                 </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите данные" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wr-tU-Bef">
-                                <rect key="frame" x="160" y="327" width="280" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="15f-cb-u3D"/>
-                                    <constraint firstAttribute="height" constant="21" id="XKz-If-g5f"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pus-Ip-mJl">
+                                <rect key="frame" x="249" y="402" width="102" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Рассчитать">
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="Raschet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JXv-UM-sFI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c9n-ZY-OZo" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="99" id="6WM-WM-wed"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c9n-ZY-OZo" secondAttribute="trailing" constant="10" id="70m-d1-3eq"/>
-                            <constraint firstItem="pus-Ip-mJl" firstAttribute="top" secondItem="1Wr-tU-Bef" secondAttribute="bottom" constant="96" id="77K-Zg-slF"/>
+                            <constraint firstItem="1Wr-tU-Bef" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8NZ-G3-FhD"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="BC4-CY-v3Y"/>
                             <constraint firstItem="qrI-DS-KJp" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="8" id="CQH-6r-yAU"/>
                             <constraint firstItem="Ds6-OA-3ip" firstAttribute="top" secondItem="c9n-ZY-OZo" secondAttribute="bottom" constant="55" id="NEH-kb-dXY"/>
                             <constraint firstItem="pus-Ip-mJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NgH-nt-XN4"/>
+                            <constraint firstItem="pus-Ip-mJl" firstAttribute="top" secondItem="1Wr-tU-Bef" secondAttribute="bottom" constant="50" id="OfU-Wv-2RS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ds6-OA-3ip" secondAttribute="trailing" constant="10" id="Qvg-vl-Wko"/>
                             <constraint firstItem="qrI-DS-KJp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RZH-2o-OZ4"/>
-                            <constraint firstItem="1Wr-tU-Bef" firstAttribute="top" secondItem="FlS-hh-hck" secondAttribute="bottom" constant="93" id="icO-tw-lnO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Wr-tU-Bef" secondAttribute="trailing" id="jQg-I3-UnI"/>
                             <constraint firstItem="1Wr-tU-Bef" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l4F-2N-uJ9"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="top" secondItem="5ms-dF-fcx" secondAttribute="bottom" constant="55" id="n7M-Zj-ufL"/>
                             <constraint firstItem="5ms-dF-fcx" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="99" id="qAv-3u-KUK"/>
                             <constraint firstItem="5ms-dF-fcx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="qSR-xE-cZZ"/>
+                            <constraint firstItem="1Wr-tU-Bef" firstAttribute="top" secondItem="FlS-hh-hck" secondAttribute="bottom" constant="38" id="sK5-TB-rNB"/>
                         </constraints>
                     </view>
                     <connections>
