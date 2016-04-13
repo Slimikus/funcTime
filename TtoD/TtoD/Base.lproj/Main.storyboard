@@ -77,17 +77,14 @@
                                     <action selector="Raschet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JXv-UM-sFI"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ds6-OA-3ip">
-                                <rect key="frame" x="424" y="194" width="146" height="50"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OtE-iT-uPr">
+                                <rect key="frame" x="424" y="204" width="146" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="146" id="Dsd-Yg-AWS"/>
-                                    <constraint firstAttribute="height" constant="50" id="tWk-pw-xKP"/>
+                                    <constraint firstAttribute="width" constant="146" id="Wjc-QI-gQX"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="AIa-jY-elv"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iRK-r9-bVl"/>
-                                </connections>
-                            </pickerView>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -95,11 +92,11 @@
                             <constraint firstItem="1Wr-tU-Bef" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8NZ-G3-FhD"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="BC4-CY-v3Y"/>
                             <constraint firstItem="qrI-DS-KJp" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="8" id="CQH-6r-yAU"/>
-                            <constraint firstItem="Ds6-OA-3ip" firstAttribute="top" secondItem="c9n-ZY-OZo" secondAttribute="bottom" constant="35" id="NEH-kb-dXY"/>
+                            <constraint firstItem="OtE-iT-uPr" firstAttribute="top" secondItem="c9n-ZY-OZo" secondAttribute="bottom" constant="45" id="Fv4-et-G6B"/>
                             <constraint firstItem="pus-Ip-mJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NgH-nt-XN4"/>
                             <constraint firstItem="pus-Ip-mJl" firstAttribute="top" secondItem="1Wr-tU-Bef" secondAttribute="bottom" constant="50" id="OfU-Wv-2RS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ds6-OA-3ip" secondAttribute="trailing" constant="10" id="Qvg-vl-Wko"/>
                             <constraint firstItem="qrI-DS-KJp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RZH-2o-OZ4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OtE-iT-uPr" secondAttribute="trailing" constant="10" id="YKM-d7-Arv"/>
                             <constraint firstItem="c9n-ZY-OZo" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="89" id="heu-xC-YLe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Wr-tU-Bef" secondAttribute="trailing" id="jQg-I3-UnI"/>
                             <constraint firstItem="1Wr-tU-Bef" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l4F-2N-uJ9"/>
@@ -113,6 +110,7 @@
                         <outlet property="Objem" destination="5ms-dF-fcx" id="hvB-nX-aH5"/>
                         <outlet property="Result" destination="1Wr-tU-Bef" id="dcV-Lq-W7p"/>
                         <outlet property="Skoroct" destination="FlS-hh-hck" id="mHh-Oh-huq"/>
+                        <outlet property="pickerTextField" destination="OtE-iT-uPr" id="LFX-uI-48d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

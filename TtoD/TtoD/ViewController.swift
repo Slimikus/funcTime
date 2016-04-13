@@ -10,18 +10,25 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var arr1 = []
+    var arr1 = ["bit", "Kb", "Mb", "Gb", "Tb"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        pickerTextField.inputView = pickerView
+        
         Objem.delegate = self
         Skoroct.delegate = self
-        arr1 = [1, 2, 3, 4, 5]
+        
     }
     
     @IBOutlet weak var Objem: UITextField!
     @IBOutlet weak var Skoroct: UITextField!
     @IBOutlet weak var Result: UILabel!
+    @IBOutlet weak var pickerTextField: UITextField!
+    
     @IBAction func Raschet(sender: UIButton) {
         
         var printLabel: String = ""
@@ -308,6 +315,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(arr1[row])"
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerTextField.text = arr1[row]
     }
 }
 
