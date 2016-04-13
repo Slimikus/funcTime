@@ -10,13 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var arr = []
+    var arr1 = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Objem.delegate = self
         Skoroct.delegate = self
-        arr = [1, 2, 3, 4, 5]
+        arr1 = [1, 2, 3, 4, 5]
     }
     
     @IBOutlet weak var Objem: UITextField!
@@ -297,16 +297,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         super.touchesBegan(touches, withEvent: event)
     }
 
+    // PickerView
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return arr.count
+        return arr1.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(arr[row])"
+        return "\(arr1[row])"
     }
 }
 
