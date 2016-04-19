@@ -10,13 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    var arr1 = ["bit", "Kb", "Mb", "Gb", "Tb"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-      
         
         Objem.delegate = self
         Skoroct.delegate = self
@@ -28,19 +23,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Result: UILabel!
     @IBOutlet weak var skorSegControl: UISegmentedControl!
     
-    @IBAction func skorSoedTouch(sender: UISegmentedControl) {
-        switch skorSegControl.selectedSegmentIndex {
-        case 0:
-            Result.text = "Что-то работает"
-        case 1:
-            Result.text = "однозначно, что-то работает!"
-        case 2:
-            Result.text = "Всё работает!!!"
-        default:
-            break
-        }
-    }
-    
     @IBAction func Raschet(sender: UIButton) {
         
         var printLabel: String = ""
@@ -48,15 +30,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var min: Int
         var chas: Int
         var den: Int
-        var skorSoed: (Double, String)
         var obyemSkachD: Double = Double(Objem.text!)!
         let obyemSkachE = "Gb"
         var obyemSkach: (Double, String)
-        let skorSoedE = "Kbyte"
         var skorSoedD: Double = Double(Skoroct.text!)!
        
         obyemSkach = (obyemSkachD, obyemSkachE)
-        skorSoed = (skorSoedD, skorSoedE)
+        print(skorSegControl.selectedSegmentIndex)
         
         // Перевод единиц измерения в байты
         func perevodVByte(obyem: Double, _ velich: String) -> (Double, String) {
@@ -284,18 +264,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         obyemSkach = perevodVByte(obyemSkach.0, obyemSkach.1)
         
         // расчёт в зависивости от единиц измерения скорости
-        switch skorSoed.1 {
-        case "byte":
+        switch skorSegControl.selectedSegmentIndex {
+        case 0:  //byte
             print("Скорость очень маленькая")
-            sec = Int(obyemSkach.0  / skorSoed.0)
+            sec = Int(obyemSkach.0  / skorSoedD)
             printTime(sec)
-        case "Kbyte":
-            print("Скорость скачивания \(skorSoed.0) kByte/сек")
-            sec = Int(obyemSkach.0 / 1024 / skorSoed.0)
+        case 1:  //Kbyte
+            print("Скорость скачивания \(skorSoedD) kByte/сек")
+            sec = Int(obyemSkach.0 / 1024 / skorSoedD)
             printTime(sec)
-        case "Mbyte":
-            print("Скорость скачивания \(skorSoed.0) MByte/сек")
-            sec = Int(obyemSkach.0 / 1024 / 1024 / skorSoed.0)
+        case 2:  //Mbyte
+            print("Скорость скачивания \(skorSoedD) MByte/сек")
+            sec = Int(obyemSkach.0 / 1024 / 1024 / skorSoedD)
             printTime(sec)
         default:
             break

@@ -73,9 +73,6 @@
                                     <segment title="Kbyte"/>
                                     <segment title="Mbyte"/>
                                 </segments>
-                                <connections>
-                                    <action selector="skorSoedTouch:" destination="BYZ-38-t0r" eventType="valueChanged" id="c2i-kT-KcD"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
