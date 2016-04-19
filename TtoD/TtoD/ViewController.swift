@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Skoroct: UITextField!
     @IBOutlet weak var Result: UILabel!
     @IBOutlet weak var skorSegControl: UISegmentedControl!
+    @IBOutlet weak var objemSkachControl: UISegmentedControl!
     
     @IBAction func Raschet(sender: UIButton) {
         
@@ -31,37 +32,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var chas: Int
         var den: Int
         var obyemSkachD: Double = Double(Objem.text!)!
-        let obyemSkachE = "Gb"
+       // let obyemSkachE = "Gb"
         var obyemSkach: (Double, String)
         var skorSoedD: Double = Double(Skoroct.text!)!
        
-        obyemSkach = (obyemSkachD, obyemSkachE)
+      //  obyemSkach = (obyemSkachD, obyemSkachE)
         print(skorSegControl.selectedSegmentIndex)
         
         // Перевод единиц измерения в байты
-        func perevodVByte(obyem: Double, _ velich: String) -> (Double, String) {
+        func perevodVByte(obyem: Double, _ velich: Int) -> Double {
             var tObyem = obyem
-            var tVelich = velich
-            switch velich {
-            case "bit":
-                print("Объём файла \(tObyem) \(tVelich)")
-            case "Kb":
-                print("Объём файла \(tObyem) \(tVelich)")
+           // var tVelich = velich
+            switch objemSkachControl.selectedSegmentIndex {
+            case 0: //byte
+                print("Объём файла \(tObyem) byte")
+            case 1: //Kb
+                print("Объём файла \(tObyem) Kb")
                 tObyem = tObyem * 1024
-            case "Mb":
-                print("Объём файла \(tObyem) \(tVelich)")
+            case 2: //Mb
+                print("Объём файла \(tObyem) Mb")
                 tObyem = tObyem * 1024 * 1024
-            case "Gb":
-                print("Объём файла \(tObyem) \(tVelich)")
+            case 3: //Gb
+                print("Объём файла \(tObyem) Gb")
                 tObyem = tObyem * 1024 * 1024 * 1024
-            case "Tb":
-                print("Объём файла \(obyem) \(tVelich)")
+            case 4: //Tb
+                print("Объём файла \(obyem) Tb")
                 tObyem = tObyem * 1024 * 1024 * 1024 * 1024
             default:
                 break
             }
-            tVelich = "byte"
-            return (tObyem, tVelich)
+           // tVelich = "byte"
+            return tObyem
         }
         
         func printTime(sec: Int) {
@@ -261,21 +262,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        obyemSkach = perevodVByte(obyemSkach.0, obyemSkach.1)
+        obyemSkachD = perevodVByte(obyemSkachD, objemSkachControl.selectedSegmentIndex)
         
         // расчёт в зависивости от единиц измерения скорости
         switch skorSegControl.selectedSegmentIndex {
         case 0:  //byte
             print("Скорость очень маленькая")
-            sec = Int(obyemSkach.0  / skorSoedD)
+            sec = Int(obyemSkachD  / skorSoedD)
             printTime(sec)
         case 1:  //Kbyte
             print("Скорость скачивания \(skorSoedD) kByte/сек")
-            sec = Int(obyemSkach.0 / 1024 / skorSoedD)
+            sec = Int(obyemSkachD / 1024 / skorSoedD)
             printTime(sec)
         case 2:  //Mbyte
             print("Скорость скачивания \(skorSoedD) MByte/сек")
-            sec = Int(obyemSkach.0 / 1024 / 1024 / skorSoedD)
+            sec = Int(obyemSkachD / 1024 / 1024 / skorSoedD)
             printTime(sec)
         default:
             break

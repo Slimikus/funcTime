@@ -37,18 +37,18 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Объём" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ms-dF-fcx">
-                                <rect key="frame" x="30" y="119" width="85" height="30"/>
+                                <rect key="frame" x="30" y="79" width="85" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="kUk-fW-udj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расчёт времени скачивания" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrI-DS-KJp">
-                                <rect key="frame" x="178" y="28" width="245" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Объём вашего файла" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrI-DS-KJp">
+                                <rect key="frame" x="30" y="28" width="550" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="qrI-DS-KJp" secondAttribute="height" multiplier="245:67" id="ITX-Dq-ENl"/>
-                                    <constraint firstAttribute="height" constant="67" id="yqm-ha-JVV"/>
+                                    <constraint firstAttribute="width" secondItem="qrI-DS-KJp" secondAttribute="height" multiplier="245:67" constant="403.73134328358208" id="ITX-Dq-ENl"/>
+                                    <constraint firstAttribute="height" constant="40" id="yqm-ha-JVV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,36 +67,65 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fUU-Ub-uWY">
-                                <rect key="frame" x="422" y="205" width="158" height="29"/>
+                                <rect key="frame" x="404" y="205" width="176" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="176" id="375-kF-2qT"/>
+                                </constraints>
                                 <segments>
                                     <segment title="byte"/>
                                     <segment title="Kbyte"/>
                                     <segment title="Mbyte"/>
                                 </segments>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pay-FF-iax">
+                                <rect key="frame" x="404" y="80" width="176" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="176" id="KWl-KB-xvg"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="byte"/>
+                                    <segment title="Kb"/>
+                                    <segment title="Mb"/>
+                                    <segment title="Gb"/>
+                                    <segment title="Tb"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скорость скачивания" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUk-WU-9Tn">
+                                <rect key="frame" x="30" y="136" width="550" height="40"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1Wr-tU-Bef" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8NZ-G3-FhD"/>
+                            <constraint firstItem="pay-FF-iax" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="60" id="8be-qP-p0m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pay-FF-iax" secondAttribute="trailing" id="ApS-q8-0i0"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="BC4-CY-v3Y"/>
                             <constraint firstItem="qrI-DS-KJp" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="8" id="CQH-6r-yAU"/>
+                            <constraint firstItem="RUk-WU-9Tn" firstAttribute="leading" secondItem="5ms-dF-fcx" secondAttribute="leading" id="DeW-Ua-RFU"/>
+                            <constraint firstItem="RUk-WU-9Tn" firstAttribute="trailing" secondItem="pay-FF-iax" secondAttribute="trailing" id="J7S-6d-DXi"/>
                             <constraint firstItem="pus-Ip-mJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NgH-nt-XN4"/>
                             <constraint firstItem="pus-Ip-mJl" firstAttribute="top" secondItem="1Wr-tU-Bef" secondAttribute="bottom" constant="50" id="OfU-Wv-2RS"/>
-                            <constraint firstItem="qrI-DS-KJp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RZH-2o-OZ4"/>
+                            <constraint firstItem="qrI-DS-KJp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="5" id="RZH-2o-OZ4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fUU-Ub-uWY" secondAttribute="trailing" id="f1c-hp-vJm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Wr-tU-Bef" secondAttribute="trailing" id="jQg-I3-UnI"/>
+                            <constraint firstItem="FlS-hh-hck" firstAttribute="top" secondItem="RUk-WU-9Tn" secondAttribute="bottom" constant="28" id="kK9-Mb-3iC"/>
                             <constraint firstItem="1Wr-tU-Bef" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l4F-2N-uJ9"/>
-                            <constraint firstItem="FlS-hh-hck" firstAttribute="top" secondItem="5ms-dF-fcx" secondAttribute="bottom" constant="55" id="n7M-Zj-ufL"/>
+                            <constraint firstItem="FlS-hh-hck" firstAttribute="top" secondItem="5ms-dF-fcx" secondAttribute="bottom" constant="95" id="n7M-Zj-ufL"/>
                             <constraint firstItem="fUU-Ub-uWY" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="185" id="nyB-B1-3Ps"/>
-                            <constraint firstItem="5ms-dF-fcx" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="99" id="qAv-3u-KUK"/>
+                            <constraint firstItem="5ms-dF-fcx" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="59" id="qAv-3u-KUK"/>
                             <constraint firstItem="5ms-dF-fcx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="qSR-xE-cZZ"/>
                             <constraint firstItem="1Wr-tU-Bef" firstAttribute="top" secondItem="FlS-hh-hck" secondAttribute="bottom" constant="38" id="sK5-TB-rNB"/>
+                            <constraint firstItem="RUk-WU-9Tn" firstAttribute="top" secondItem="5ms-dF-fcx" secondAttribute="bottom" constant="27" id="zsB-2m-qNT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="Objem" destination="5ms-dF-fcx" id="hvB-nX-aH5"/>
                         <outlet property="Result" destination="1Wr-tU-Bef" id="dcV-Lq-W7p"/>
                         <outlet property="Skoroct" destination="FlS-hh-hck" id="mHh-Oh-huq"/>
+                        <outlet property="objemSkachControl" destination="pay-FF-iax" id="Tit-JL-4Du"/>
                         <outlet property="skorSegControl" destination="fUU-Ub-uWY" id="WdB-Z8-jEx"/>
                     </connections>
                 </viewController>
