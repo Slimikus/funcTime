@@ -12,14 +12,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Objem.delegate = self
-        Skoroct.delegate = self
-        
+        Objem!.delegate = self
+        Skoroct!.delegate = self
     }
     
-    @IBOutlet weak var Objem: UITextField!
-    @IBOutlet weak var Skoroct: UITextField!
+    @IBOutlet weak var Objem: UITextField?
+    @IBOutlet weak var Skoroct: UITextField?
     @IBOutlet weak var Result: UILabel!
     @IBOutlet weak var skorSegControl: UISegmentedControl!
     @IBOutlet weak var objemSkachControl: UISegmentedControl!
@@ -31,14 +29,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var min: UInt64
         var chas: UInt64
         var den: UInt64
-        var obyemSkachD: Double = Double(Objem.text!)!
-        var obyemSkach: (Double, String)
-        var skorSoedD: Double = Double(Skoroct.text!)!
-        
+        var obyemSkachD: Double
+        var skorSoedD: Double
+        if Objem!.text! == "" || Skoroct!.text! == "" {
+            // Сделать Alert
+            Result.text = "Вы не ввели данные!!!"
+        } else {
+            obyemSkachD = Double(Objem!.text!)!
+            skorSoedD = Double(Skoroct!.text!)!
+            
         // Перевод единиц измерения в байты
         func perevodVByte(obyem: Double, _ velich: Int) -> Double {
             var tObyem = obyem
-           // var tVelich = velich
             switch objemSkachControl.selectedSegmentIndex {
             case 0: //byte
                 print("Объём файла \(tObyem) byte")
@@ -57,7 +59,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             default:
                 break
             }
-           // tVelich = "byte"
             return tObyem
         }
         
@@ -281,6 +282,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             break
         }
         Result.text = printLabel
+      }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
