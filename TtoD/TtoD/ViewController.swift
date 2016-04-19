@@ -8,16 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     var arr1 = ["bit", "Kb", "Mb", "Gb", "Tb"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerTextField.inputView = pickerView
+        
+      
         
         Objem.delegate = self
         Skoroct.delegate = self
@@ -27,7 +26,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     @IBOutlet weak var Objem: UITextField!
     @IBOutlet weak var Skoroct: UITextField!
     @IBOutlet weak var Result: UILabel!
-    @IBOutlet weak var pickerTextField: UITextField!
+    @IBOutlet weak var skorSegControl: UISegmentedControl!
+    
+    @IBAction func skorSoedTouch(sender: UISegmentedControl) {
+        switch skorSegControl.selectedSegmentIndex {
+        case 0:
+            Result.text = "Что-то работает"
+        case 1:
+            Result.text = "однозначно, что-то работает!"
+        case 2:
+            Result.text = "Всё работает!!!"
+        default:
+            break
+        }
+    }
     
     @IBAction func Raschet(sender: UIButton) {
         
@@ -304,21 +316,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         super.touchesBegan(touches, withEvent: event)
     }
 
-    // PickerView
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return arr1.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(arr1[row])"
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField.text = arr1[row]
-    }
+   
 }
 
