@@ -27,17 +27,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func Raschet(sender: UIButton) {
         
         var printLabel: String = ""
-        var sec: Int
-        var min: Int
-        var chas: Int
-        var den: Int
+        var sec: UInt64
+        var min: UInt64
+        var chas: UInt64
+        var den: UInt64
         var obyemSkachD: Double = Double(Objem.text!)!
-       // let obyemSkachE = "Gb"
         var obyemSkach: (Double, String)
         var skorSoedD: Double = Double(Skoroct.text!)!
-       
-      //  obyemSkach = (obyemSkachD, obyemSkachE)
-        print(skorSegControl.selectedSegmentIndex)
         
         // Перевод единиц измерения в байты
         func perevodVByte(obyem: Double, _ velich: Int) -> Double {
@@ -65,7 +61,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return tObyem
         }
         
-        func printTime(sec: Int) {
+        func printTime(sec: UInt64) {
             var min = sec / 60
             var chas = min / 60
             var dni = chas / 24
@@ -83,48 +79,48 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let array2 = [2, 3, 4, 22, 32, 42, 52, 23, 33, 43, 53, 24, 34, 44, 54, 62, 63, 64, 72, 73, 74, 82, 83, 84, 92, 93, 94]
             
             // Подсчёт минут
-            func tMin(sec: Int) -> Int {
+            func tMin(sec: UInt64) -> UInt64 {
                 var tSec = min * 60
                 tSec = sec - tSec
                 return tSec
             }
             
             // Подсчёт часов
-            func tChas(min: Int) -> Int {
+            func tChas(min: UInt64) -> UInt64 {
                 var tMin = chas * 60
                 tMin = min - tMin
                 return tMin
             }
             
             // Подсчёт дней
-            func tDni(chas: Int) -> Int {
+            func tDni(chas: UInt64) -> UInt64 {
                 var tChas = dni * 24
                 tChas = chas - tChas
                 return tChas
             }
             
             // Подсчёт месяцев
-            func tMes(dni: Int) -> Int {
+            func tMes(dni: UInt64) -> UInt64 {
                 var tDni = mes * 30
                 tDni = dni - tDni
                 return tDni
             }
             
             // Подсчёт лет
-            func tGod(mes: Int) -> Int {
+            func tGod(mes: UInt64) -> UInt64 {
                 var tMes = god * 12
                 tMes = mes - tMes
                 return tMes
             }
             
             // Отображение секунд
-            func fSec(sec: Int) -> String {
+            func fSec(sec: UInt64) -> String {
                 switch sec {
                 case 1..<60:
-                    if result == array1.contains(sec) {
+                    if result == array1.contains(Int(sec)) {
                         printSec = "\(sec) секунда"
                         return printSec
-                    } else if result == array2.contains(sec) {
+                    } else if result == array2.contains(Int(sec)) {
                         printSec = "\(sec) секунды"
                         return printSec
                     } else {
@@ -138,14 +134,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
             // Отбражение минут
-            func fMin(min: Int, _ sec: Int) -> (String, Int) {
+            func fMin(min: UInt64, _ sec: UInt64) -> (String, UInt64) {
                 let tSec = tMin(sec)
                 switch min {
                 case 1..<60:
-                    if result == array1.contains(min) {
+                    if result == array1.contains(Int(min)) {
                         printMin = "\(min) минута "
                         return (printMin, tSec)
-                    } else if result == array2.contains(min) {
+                    } else if result == array2.contains(Int(min)) {
                         printMin = "\(min) минуты "
                         return (printMin, tSec)
                     } else {
@@ -159,14 +155,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
             // Отображение часов
-            func fChas(chas: Int, _ min: Int) -> (String, Int) {
+            func fChas(chas: UInt64, _ min: UInt64) -> (String, UInt64) {
                 let tMin = tChas(min)
                 switch chas {
                 case 1..<24:
-                    if result == array1.contains(chas) {
+                    if result == array1.contains(Int(chas)) {
                         printChas = "\(chas) час "
                         return (printChas, tMin)
-                    } else if result == array2.contains(chas) {
+                    } else if result == array2.contains(Int(chas)) {
                         printChas = "\(chas) часа "
                         return (printChas, tMin)
                     } else {
@@ -180,14 +176,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
             // Отображение дней
-            func fDni(dni: Int, _ chas: Int) -> (String, Int) {
+            func fDni(dni: UInt64, _ chas: UInt64) -> (String, UInt64) {
                 let tChas = tDni(chas)
                 switch dni {
                 case 1..<31:
-                    if result == array1.contains(dni) {
+                    if result == array1.contains(Int(dni)) {
                         printDni = "\(dni) день "
                         return (printDni, tChas)
-                    } else if result == array2.contains(dni) {
+                    } else if result == array2.contains(Int(dni)) {
                         printDni = "\(dni) дня "
                         return (printDni, tChas)
                     } else {
@@ -201,14 +197,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
             // Отображение  месяцев
-            func fMes(mes: Int, _ dni: Int) -> (String, Int) {
+            func fMes(mes: UInt64, _ dni: UInt64) -> (String, UInt64) {
                 let tDni = tMes(dni)
                 switch mes {
                 case 1..<31:
-                    if result == array1.contains(mes) {
+                    if result == array1.contains(Int(mes)) {
                         printMes = "\(mes) месяц "
                         return (printMes, tDni)
-                    } else if result == array2.contains(mes) {
+                    } else if result == array2.contains(Int(mes)) {
                         printMes = "\(mes) месяца "
                         return (printMes, tDni)
                     } else {
@@ -222,14 +218,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
             // Отображение  лет
-            func fGod(god: Int, _ mes: Int) -> (String, Int) {
+            func fGod(god: UInt64, _ mes: UInt64) -> (String, UInt64) {
                 let tMes = tGod(mes)
                 switch god {
                 case 1...100:
-                    if result == array1.contains(god) {
+                    if result == array1.contains(Int(god)) {
                         printGod = "\(god) год "
                         return (printGod, tMes)
-                    } else if result == array2.contains(god) {
+                    } else if result == array2.contains(Int(god)) {
                         printGod = "\(god) года "
                         return (printGod, tMes)
                     } else {
@@ -245,9 +241,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // Вывод на экран до 1 секунды
             if sec < 1 {
                 printText += "меньше секунды"
+                printLabel = printText
                 print(printText)
             } else if god >= 100 {
-                print(printText + "займёт больше 100 лет!!!")
+                printText += "займёт больше 100 лет!!!"
+                printLabel = printText
+                print(printText)
                 
                 // Вывод на экран от 1 секунды до 100 лет
             } else {
@@ -267,16 +266,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // расчёт в зависивости от единиц измерения скорости
         switch skorSegControl.selectedSegmentIndex {
         case 0:  //byte
-            print("Скорость очень маленькая")
-            sec = Int(obyemSkachD  / skorSoedD)
+            print("Скорость очень маленькая, \(skorSoedD) Byte/сек")
+            sec = UInt64(obyemSkachD  / skorSoedD)
             printTime(sec)
         case 1:  //Kbyte
             print("Скорость скачивания \(skorSoedD) kByte/сек")
-            sec = Int(obyemSkachD / 1024 / skorSoedD)
+            sec = UInt64(obyemSkachD / 1024 / skorSoedD)
             printTime(sec)
         case 2:  //Mbyte
             print("Скорость скачивания \(skorSoedD) MByte/сек")
-            sec = Int(obyemSkachD / 1024 / 1024 / skorSoedD)
+            sec = UInt64(obyemSkachD / 1024 / 1024 / skorSoedD)
             printTime(sec)
         default:
             break
