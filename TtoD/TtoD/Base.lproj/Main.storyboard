@@ -63,9 +63,9 @@
                                     <constraint firstAttribute="width" constant="176" id="375-kF-2qT"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="byte"/>
-                                    <segment title="Kbyte"/>
-                                    <segment title="Mbyte"/>
+                                    <segment title="byte/s"/>
+                                    <segment title="Kbyte/s"/>
+                                    <segment title="Mbyte/s"/>
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pay-FF-iax">
@@ -87,19 +87,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите объём файла и скорость скачивания" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wr-tU-Bef">
-                                <rect key="frame" x="20" y="272" width="560" height="80"/>
+                            <label opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите объём файла и скорость скачивания" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="3" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wr-tU-Bef">
+                                <rect key="frame" x="38" y="272" width="525" height="101"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="pMX-sr-2lb"/>
+                                    <constraint firstAttribute="height" constant="101" id="pMX-sr-2lb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="-1" height="-2"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1Wr-tU-Bef" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8NZ-G3-FhD"/>
+                            <constraint firstItem="1Wr-tU-Bef" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="18" id="8NZ-G3-FhD"/>
                             <constraint firstItem="pay-FF-iax" firstAttribute="top" secondItem="HVD-BO-EBi" secondAttribute="bottom" constant="60" id="8be-qP-p0m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pay-FF-iax" secondAttribute="trailing" id="ApS-q8-0i0"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="BC4-CY-v3Y"/>
@@ -107,10 +109,10 @@
                             <constraint firstItem="RUk-WU-9Tn" firstAttribute="leading" secondItem="5ms-dF-fcx" secondAttribute="leading" id="DeW-Ua-RFU"/>
                             <constraint firstItem="RUk-WU-9Tn" firstAttribute="trailing" secondItem="pay-FF-iax" secondAttribute="trailing" id="J7S-6d-DXi"/>
                             <constraint firstItem="pus-Ip-mJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NgH-nt-XN4"/>
-                            <constraint firstItem="pus-Ip-mJl" firstAttribute="top" secondItem="1Wr-tU-Bef" secondAttribute="bottom" constant="50" id="OfU-Wv-2RS"/>
+                            <constraint firstItem="pus-Ip-mJl" firstAttribute="top" secondItem="1Wr-tU-Bef" secondAttribute="bottom" constant="29" id="OfU-Wv-2RS"/>
                             <constraint firstItem="qrI-DS-KJp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="5" id="RZH-2o-OZ4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fUU-Ub-uWY" secondAttribute="trailing" id="f1c-hp-vJm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1Wr-tU-Bef" secondAttribute="trailing" id="jQg-I3-UnI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Wr-tU-Bef" secondAttribute="trailing" constant="17" id="jQg-I3-UnI"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="top" secondItem="RUk-WU-9Tn" secondAttribute="bottom" constant="28" id="kK9-Mb-3iC"/>
                             <constraint firstItem="1Wr-tU-Bef" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l4F-2N-uJ9"/>
                             <constraint firstItem="FlS-hh-hck" firstAttribute="top" secondItem="5ms-dF-fcx" secondAttribute="bottom" constant="95" id="n7M-Zj-ufL"/>
