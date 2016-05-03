@@ -255,3 +255,22 @@ switch skorSoed.1 {
     default:
         break
 }
+
+// Проверка на запятую
+
+var test = "34,56"
+var char: Character
+var testNew: String = ""
+for var char in test.characters {
+    if char == ","{
+        print("Найдена запятая")
+        char = "."
+    }
+    testNew += String(char)
+}
+test = testNew
+
+
+
+
+
