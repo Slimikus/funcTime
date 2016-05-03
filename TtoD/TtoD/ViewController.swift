@@ -23,20 +23,41 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var objemSkachControl: UISegmentedControl!
     
     @IBAction func Raschet(sender: UIButton) {
-        
-        var printLabel: String = ""
+        Result.text = ""
+        var printLabel: String = " "
         var sec: UInt64
         var min: UInt64
         var chas: UInt64
         var den: UInt64
         var obyemSkachD: Double
+        var objemSkachS: String
         var skorSoedD: Double
+        var skorSoedS: String
+        var vremPeremO = ""
+        var vremPeremOCh: Character
+        var vremPeremS = ""
+        var vremPeremSCh: Character
         if Objem!.text! == "" || Skoroct!.text! == "" {
             // Сделать Alert
             Result.text = "Вы не ввели данные!!!"
         } else {
-            obyemSkachD = Double(Objem!.text!)!
-            skorSoedD = Double(Skoroct!.text!)!
+            // Проверка на запятую
+            objemSkachS = Objem!.text!
+            skorSoedS = Skoroct!.text!
+            for var vremPeremOCh in objemSkachS.characters {
+                if vremPeremOCh == "," {
+                    vremPeremOCh = "."
+                }
+                vremPeremO += String(vremPeremOCh)
+            }
+            obyemSkachD = Double(vremPeremO)!
+            for var vremPeremSCh in skorSoedS.characters {
+                if vremPeremSCh == "," {
+                    vremPeremSCh = "."
+                }
+                vremPeremS += String(vremPeremSCh)
+            }
+            skorSoedD = Double(vremPeremS)!
             
         // Перевод единиц измерения в байты
         func perevodVByte(obyem: Double, _ velich: Int) -> Double {
